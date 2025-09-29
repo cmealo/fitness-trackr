@@ -14,8 +14,8 @@ export default function ActivityItem({ activity, onDeleted }) {
   const { token, user } = useAuth();
   const [msg, setMsg] = useState(null);
 
-  const isOwner = !!user && user.id === activity.creatorId;
-  const canDelete = !!token && isOwner;
+  const isOwner = !!user && user.id === activity.creatorId; // optional (use for styling)
+  const canDelete = !!token; // <- show for all logged-in users
 
   async function handleDelete() {
     try {
