@@ -27,6 +27,7 @@ export function AuthProvider({ children }) {
       throw Error(result.message);
     }
     setToken(result.token);
+    setUser(result.user); // <-- save user after register
   };
 
   const login = async (credentials) => {
