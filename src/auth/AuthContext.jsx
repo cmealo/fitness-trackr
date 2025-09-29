@@ -40,6 +40,7 @@ export function AuthProvider({ children }) {
       throw Error(result.message);
     }
     setToken(result.token);
+    setUser(result.user); // <-- save user object
   };
 
   const logout = () => setToken(null);
