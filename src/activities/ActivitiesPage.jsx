@@ -16,10 +16,16 @@ export default function ActivitiesPage() {
     syncActivities();
   }, []);
 
+  // NEW: called after a successful delete
+  function handleDeleted(id) {
+    // Optimistic removal... refetch would be call syncActivities() instead.
+    setActivities((prev) => prev.filter((a) => a.id !== id));
+  }
+
   return (
     <>
       <h1>Activities</h1>
-      <ActivityList activities={activities} />
+      <ActivityList activities={activities} onDeleted={handleDeleted} />
       <ActivityForm syncActivities={syncActivities} />
     </>
   );
