@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
     setUser(null); // <-- clear user
   };
 
-  const value = { token, register, login, logout };
+  const value = { token, user, register, login, logout }; // added user val
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
