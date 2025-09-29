@@ -43,7 +43,10 @@ export function AuthProvider({ children }) {
     setUser(result.user); // <-- save user object
   };
 
-  const logout = () => setToken(null);
+  const logout = () => {
+    setToken(null);
+    setUser(null); // <-- clear user
+  };
 
   const value = { token, register, login, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
